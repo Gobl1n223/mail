@@ -22,14 +22,23 @@ public class PostalOfficeController {
     public PostalOfficeController(PostalOfficeService postalOfficeService) {
         this.postalOfficeService = postalOfficeService;
     }
-    //Показ всех почтовых отделений
+
+    /**Показ всех почтовых отделений
+     * нужно указать
+     * index: индекс почтового отделения
+     */
     @GetMapping("/all")
     public List<PostalOffice> findAll(){
 
         System.out.println("PostOfficeController: all------------------------");
         return postalOfficeService.findAll();
     }
-    //Добавление почтового отделения
+
+    /**Добавление почтового отделения
+     * index:Индекс почтового отделения
+     * name: Название почтового отделения
+     * adress: Адресс почтового отделения
+     */
     @PostMapping("/add")
     public ResponseEntity add(@RequestBody PostalOffice postalOffice){
         System.out.println("PostalOfficeController: add------------------------");
@@ -48,6 +57,9 @@ public class PostalOfficeController {
         return ResponseEntity.ok(postalOfficeService.add(postalOffice));
     }
 
+    /**Изменение почтового отделения
+     * Работает по аналогии с add
+     */
     @PutMapping("/update")
     public ResponseEntity update (@RequestBody PostalOffice postalOffice){
         System.out.println("PostalOffice: update------------------------");
@@ -66,6 +78,9 @@ public class PostalOfficeController {
         return ResponseEntity.ok(postalOfficeService.update(postalOffice));
     }
 
+    /**Поиск по почтового отделения по id
+     *Нужно в URL указать id почтоового отделения
+     */
     @GetMapping("/id/{id}")
     public ResponseEntity<PostalOffice> findById(@PathVariable Long id){
         System.out.println("PostalOffice: findById------------------------");
@@ -79,7 +94,9 @@ public class PostalOfficeController {
         }
         return ResponseEntity.ok(postalOffice);
     }
-
+    /**Удаление  почтового отделения по id
+     *Нужно в URL указать id почтоового отделения
+     */
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<PostalOffice> deleteById(@PathVariable Long id){
         System.out.println("PostalOffice: delete------------------------");

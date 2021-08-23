@@ -21,7 +21,14 @@ public class DepartureController {
         this.departureService = departureService;
     }
 
-    //Создание новой посылки
+    /**Создание новой посылки
+     * Для добавления новой посылки нужно указать:
+     * type:(Тип посылки)
+     * senderIndex: (От какого индекса отправляеться посылка)
+     * recipientAddress:(Адресс получателья)
+     * recipientName(Имя получателя)
+     * recipientIndex(Индекс получателя)
+     */
     @PostMapping("/add")
     public ResponseEntity<Departure> add(@RequestBody Departure departure){
         System.out.println("Departure: add------------------------");

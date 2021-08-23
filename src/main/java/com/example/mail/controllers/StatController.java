@@ -29,7 +29,13 @@ public class StatController {
         this.statRepository = statRepository;
         this.departureService = departureService;
     }
-    //Обновление перемещения посылки по почтовым отделениям(изменением индекса почтового оделение в котором находиться посылка)
+
+    /**Обновление перемещения посылки по почтовым отделениям(изменением индекса почтового оделение в котором находиться посылка)
+     * Для добавления нового промежуточного пункта нужно указать:
+     * idMail: Индификатор посылки
+     * indexOffice: Индекс промежуточного отделения
+     * status: Статус 1 - посылка в промежуточном отделении
+     */
     @PutMapping("/add")
     public ResponseEntity add (@RequestBody Stat stat){
         System.out.println("StatController: add------------------------");
@@ -54,6 +60,7 @@ public class StatController {
         }
         return ResponseEntity.ok(statService.updateOffice(stat));
     }
+
     //Уход посылки из почтового отделение (нужно указывать вместе с id и ставить status 0)
     @PutMapping("/delete")
     public ResponseEntity delete(@RequestBody Stat stat){
@@ -68,7 +75,11 @@ public class StatController {
         }
         return ResponseEntity.ok(statService.updateOffice(stat));
     }
-    //Показ всего пути посылки
+
+    /**Показ всего пути посылки
+     * нужно указать
+     * idMail: Индификатор посылки
+     */
     @PostMapping("/findAll")
     public ResponseEntity<List<Stat>> findAll(@RequestBody StatSearch statSearch){
         return ResponseEntity.ok(statService.findAllById(statSearch.getIdMail()));
