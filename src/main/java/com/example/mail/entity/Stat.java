@@ -6,6 +6,10 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+ *Сущность статистики перемещения всех посылок по промежуточным отделениям
+ *Используються аннотации Lombok для лучшей читаемости кода
+ */
 @Entity
 @Setter
 @NoArgsConstructor
@@ -23,20 +27,17 @@ public class Stat {
         return id;
     }
 
-
     @Basic
     @Column(name = "id_mail")
     public Long getIdMail() {
         return idMail;
     }
 
-
     @Basic
     @Column(name = "index_office")
     public Integer getIndexOffice() {
         return indexOffice;
     }
-
 
     @Basic
     @Column(name = "status")

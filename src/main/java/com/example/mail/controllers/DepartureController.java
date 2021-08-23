@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Контроллер Посылок
+ */
 @RestController
 @RequestMapping("/depar")
 public class DepartureController {
@@ -18,6 +21,7 @@ public class DepartureController {
         this.departureService = departureService;
     }
 
+    //Создание новой посылки
     @PostMapping("/add")
     public ResponseEntity<Departure> add(@RequestBody Departure departure){
         System.out.println("Departure: add------------------------");

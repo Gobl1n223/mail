@@ -5,9 +5,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ *Сущность почтового отделения
+ *Используються аннотации Lombok для лучшей читаемости кода
+ */
 @Entity
 @Setter
 @NoArgsConstructor
@@ -26,20 +28,17 @@ public class PostalOffice {
         return id;
     }
 
-
     @Basic
     @Column(name = "index", nullable = false)
     public Integer getIndex() {
         return index;
     }
 
-
     @Basic
     @Column(name = "name", nullable = false, length = 255)
     public String getName() {
         return name;
     }
-
 
     @Basic
     @Column(name = "adress", nullable = false, length = 255)

@@ -35,4 +35,8 @@ public class DepartureService {
     public void deleteById(Long id){
         departureRepository.deleteById(id);
     }
+
+    public Departure findDepartureById(Long id){
+        return departureRepository.findDepartureById(id);
+    }
 }

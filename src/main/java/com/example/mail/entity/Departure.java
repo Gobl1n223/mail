@@ -1,11 +1,17 @@
 package com.example.mail.entity;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 import javax.persistence.*;
 
+/**
+ *Сущность посылки
+ *Используються аннотации Lombok для лучшей читаемости кода
+ */
 @Entity
 @Setter
 @NoArgsConstructor
@@ -24,14 +30,11 @@ public class Departure {
         return id;
     }
 
-
     @Basic
     @Column(name = "type")
     public String getType() {
         return type;
     }
-
-
 
     @Basic
     @Column(name = "sender_index")
@@ -39,13 +42,11 @@ public class Departure {
         return senderIndex;
     }
 
-
     @Basic
     @Column(name = "recipient_address")
     public String getRecipientAddress() {
         return recipientAddress;
     }
-
 
     @Basic
     @Column(name = "recipient_name")

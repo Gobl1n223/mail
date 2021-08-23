@@ -10,4 +10,5 @@ import java.util.List;
 public interface StatRepository extends JpaRepository<Stat, Long> {
 
     List<Stat> findAllByIdMail(Long id);
+
 }

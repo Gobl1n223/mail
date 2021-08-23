@@ -1,6 +1,7 @@
 package com.example.mail.service;
 
 import com.example.mail.entity.Stat;
+import com.example.mail.payload.StatSearch;
 import com.example.mail.repository.StatRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class StatService {
         return statRepository.save(stat);
     }
 
-   // public List<Stat> findAllById(Long idMail){
-       // return statRepository.findAllByIdMai(idMail);
-   // }
+    public List<Stat> findAllById(Long id){
+        return statRepository.findAllByIdMail(id);
+    }
 }

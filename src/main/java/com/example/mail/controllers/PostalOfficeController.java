@@ -6,9 +6,12 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.NoSuchElementException;
+/**
+ * Контроллер почтовых отделений
+ * Проверки аналогичны как и в StatController
+ */
 
 @RestController
 @RequestMapping("/postal")
@@ -19,14 +22,14 @@ public class PostalOfficeController {
     public PostalOfficeController(PostalOfficeService postalOfficeService) {
         this.postalOfficeService = postalOfficeService;
     }
-
+    //Показ всех почтовых отделений
     @GetMapping("/all")
     public List<PostalOffice> findAll(){
 
         System.out.println("PostOfficeController: all------------------------");
         return postalOfficeService.findAll();
     }
-
+    //Добавление почтового отделения
     @PostMapping("/add")
     public ResponseEntity add(@RequestBody PostalOffice postalOffice){
         System.out.println("PostalOfficeController: add------------------------");
